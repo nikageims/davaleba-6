@@ -14,13 +14,22 @@ function updateDisplay() {
     }
 }
 
+function getCustomAmount() {
+    const input = document.getElementById('customAmount');
+    if (!input) return 1;
+    const value = parseFloat(input.value);
+    return isNaN(value) ? 1 : value;
+}
+
 function increase() {
-    count++;
+    const amt = getCustomAmount();
+    count += amt;
     updateDisplay();
 }
 
 function decrease() {
-    count--;
+    const amt = getCustomAmount();
+    count -= amt;
     updateDisplay();
 }
 
@@ -28,6 +37,3 @@ function reset() {
     count = 0;
     updateDisplay();
 }
-
-// Initial display update
-updateDisplay();
